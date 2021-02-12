@@ -4,21 +4,24 @@ public class Comment implements Entity {
 
     private long id;
     private long authorId;
+    private long threadId;
     private long createdAt;
     private String content;
 
     public Comment() {
     }
 
-    public Comment(long authorId, long createdAt, String content) {
+    public Comment(long authorId, long threadId, long createdAt, String content) {
         this.authorId = authorId;
+        this.threadId = threadId;
         this.createdAt = createdAt;
         this.content = content;
     }
 
-    public Comment(long id, long authorId, long createdAt, String content) {
+    public Comment(long id, long authorId, long threadId, long createdAt, String content) {
         this.id = id;
         this.authorId = authorId;
+        this.threadId = threadId;
         this.createdAt = createdAt;
         this.content = content;
     }
@@ -53,5 +56,13 @@ public class Comment implements Entity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public long getThreadId() {
+        return threadId;
+    }
+
+    public void setThreadId(long threadId) {
+        this.threadId = threadId;
     }
 }

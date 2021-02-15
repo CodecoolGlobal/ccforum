@@ -1,12 +1,12 @@
-package com.codecool.ccforum.domain.services;
+package com.codecool.ccforum.persistence;
 
-import com.codecool.ccforum.domain.BaseTestDao;
+import com.codecool.ccforum.persistence.BaseDao;
 import com.codecool.ccforum.domain.dao.ThreadDao;
 import com.codecool.ccforum.domain.entities.Thread;
 
 import java.util.List;
 
-public class ThreadDaoTestImpl extends BaseTestDao<Thread> implements ThreadDao {
+public class ThreadDaoImpl extends BaseDao<Thread> implements ThreadDao {
     @Override
     public void createThread(Thread t) {
         this.save(t);

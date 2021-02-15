@@ -1,4 +1,4 @@
-package com.codecool.ccforum.domain;
+package com.codecool.ccforum.persistence;
 
 import com.codecool.ccforum.domain.entities.Entity;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class BaseTestDao<T extends Entity> {
+public class BaseDao<T extends Entity> {
 
     private static long nextId = 1;
 

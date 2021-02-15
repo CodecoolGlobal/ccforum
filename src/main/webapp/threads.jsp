@@ -10,6 +10,7 @@
 <body>
 
 <h1>Threads</h1>
+<a href="/newThread.jsp">Create new Thread</a>
 
 <%
     ThreadListController controller = ServiceRegistry.getInstance(ThreadListController.class);

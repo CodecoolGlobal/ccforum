@@ -9,14 +9,12 @@
 </head>
 <body>
 
-<h1>Threads</h1>
 
 <%
     ThreadController controller = ServiceRegistry.getInstance(ThreadController.class);
     ThreadModel model = controller.onLoad(request.getParameter("threadId"));
 %>
-
-<h2><%= model.getSubject() %></h2>
+<h1><%= model.getSubject() %></h1>
 <p>
     <%= model.getDescription() %>
 </p>

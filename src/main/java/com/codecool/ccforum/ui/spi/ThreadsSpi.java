@@ -7,5 +7,6 @@ import java.util.List;
 public interface ThreadsSpi {
 
     public List<ThreadListItemModel> getAllThreads();
+    public long createNewThread(long authorId, String title, String desc);
 
 }

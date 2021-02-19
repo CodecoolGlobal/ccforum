@@ -4,4 +4,15 @@
 
 <web-app>
   <display-name>ccforum</display-name>
+
+  <servlet>
+    <servlet-name>ListThreadServlet</servlet-name>
+    <servlet-class>com.codecool.ccforum.api.threads.ListThreadServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ListThreadServlet</servlet-name>
+    <url-pattern>/api/threads/list</url-pattern>
+  </servlet-mapping>
+
 </web-app>

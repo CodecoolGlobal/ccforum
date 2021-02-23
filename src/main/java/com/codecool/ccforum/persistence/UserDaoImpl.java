@@ -5,22 +5,26 @@ import com.codecool.ccforum.domain.dao.UserDao;
 import com.codecool.ccforum.domain.entities.User;
 
 import java.util.List;
+import java.util.Locale;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
-
-    @Override
-    public User findById(long id) {
-        return new User(id, "asdf@asdf.hu", "Kiss Pista", "sadfasdf");
-    }
 
     @Override
     public User findByEmail(String email) {
-        return new User(1, "asdf@asdf.hu", "Kiss Pista", "sadfasdf");
+        List<User> users = this.find((u) -> u.getEmail().toLowerCase().equals(email.trim().toLowerCase()));
+        if (users.size() < 1) {
+            return null;
+        }
+
+        return users.get(0);
     }
 
     @Override
     public void createUser(User user) {
-
+        if (user == null) {
+            throw new NullPointerException();
+        }
+        this.save(user);
     }
 }

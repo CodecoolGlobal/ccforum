@@ -2,6 +2,19 @@
 <%@ page import="com.codecool.ccforum.ui.model.ThreadListItemModel" %>
 <%@ page import="com.codecool.ccforum.ui.controller.ThreadListController" %>
 <%@ page import="com.codecool.ccforum.application.ServiceRegistry" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="javax.servlet.http.Cookie" %>
+<%@ page import="java.util.Optional" %>
+
+<%
+    Optional<String> ssidStr = Arrays.stream(request.getCookies())
+                           .filter(c -> "ssid".equals(c.getName()))
+                           .map(Cookie::getValue)
+                           .findAny();
+    if (!ssidStr.isPresent()) {
+        response.sendRedirect("/login.jsp");
+    }
+%>
 
 <html>
 <head>

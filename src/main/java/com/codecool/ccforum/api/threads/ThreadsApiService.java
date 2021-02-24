@@ -1,8 +1,14 @@
 package com.codecool.ccforum.api.threads;
 
-import com.codecool.ccforum.application.ServiceRegistry;
+import com.codecool.ccforum.application.Inj;
+import com.codecool.ccforum.application.ThreadSpiImpl;
 import com.codecool.ccforum.domain.entities.Thread;
+import com.codecool.ccforum.domain.services.CommentService;
 import com.codecool.ccforum.domain.services.ThreadService;
+import com.codecool.ccforum.persistence.CommentDaoImpl;
+import com.codecool.ccforum.persistence.ThreadDaoImpl;
+import com.codecool.ccforum.persistence.UserDaoImpl;
+import com.codecool.ccforum.ui.controller.ThreadController;
 
 import javax.ws.rs.*;
 import java.util.List;
@@ -18,7 +24,7 @@ public class ThreadsApiService {
     @Consumes("application/json")
     @Produces("application/json")
     public ThreadListResponseDto list() {
-        ThreadService ts = ServiceRegistry.getInstance(ThreadService.class);
+        ThreadService ts = Inj.getInstance(ThreadService.class);
         List<Thread> threads = ts.listThreads();
         List<ThreadListItemDto> itemDtos = threads.stream().map((t) -> {
             return new ThreadListItemDto(t.getId(), t.getTitle(), t.getDescription(), t.getAuthorId());
@@ -34,7 +40,8 @@ public class ThreadsApiService {
     @GET
     @Path("/{threadId}")
     public ThreadDto getThread(@PathParam("threadId") Long threadId) {
-        ThreadService ts = ServiceRegistry.getInstance(ThreadService.class);
+        ThreadService ts = Inj.getInstance(ThreadService.class);
+
         Thread thread = ts.findById(threadId);
 
         return new ThreadDto(thread.getId(), thread.getTitle(), thread.getDescription(), thread.getAuthorId());
@@ -43,7 +50,7 @@ public class ThreadsApiService {
     @POST
     @Path("/create")
     public CreateThreadResponseDto create(CreateThreadRequestDto req) {
-        ThreadService ts = ServiceRegistry.getInstance(ThreadService.class);
+        ThreadService ts = Inj.getInstance(ThreadService.class);
         Thread thread = ts.createNewThread(1, req.getTitle(), req.getDesc());
 
         return new CreateThreadResponseDto(thread.getId());

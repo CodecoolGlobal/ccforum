@@ -1,9 +1,9 @@
 <%@ page import="com.codecool.ccforum.ui.model.NewThreadModel" %>
 <%@ page import="com.codecool.ccforum.ui.controller.NewThreadController" %>
-<%@ page import="com.codecool.ccforum.application.ServiceRegistry" %>
+<%@ page import="com.codecool.ccforum.application.Inj" %>
 
 <%
-    NewThreadController controller = ServiceRegistry.getInstance(NewThreadController.class);
+    NewThreadController controller = Inj.getInstance(NewThreadController.class);
     boolean isPost = request.getMethod().equalsIgnoreCase("POST");
     NewThreadModel model = null;
     if (isPost) {

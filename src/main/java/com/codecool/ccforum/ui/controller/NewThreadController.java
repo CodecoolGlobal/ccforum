@@ -2,11 +2,13 @@ package com.codecool.ccforum.ui.controller;
 
 import com.codecool.ccforum.ui.model.NewThreadModel;
 import com.codecool.ccforum.ui.spi.ThreadsSpi;
+import com.google.inject.Inject;
 
 public class NewThreadController {
 
     private final ThreadsSpi threadsSpi;
 
+    @Inject
     public NewThreadController(ThreadsSpi threadsSpi) {
         this.threadsSpi = threadsSpi;
     }

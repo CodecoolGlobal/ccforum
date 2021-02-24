@@ -4,6 +4,8 @@ import com.codecool.ccforum.domain.dao.CommentDao;
 import com.codecool.ccforum.domain.dao.ThreadDao;
 import com.codecool.ccforum.domain.dao.UserDao;
 import com.codecool.ccforum.domain.entities.Comment;
+import com.codecool.ccforum.persistence.UserDaoImpl;
+import com.google.inject.Inject;
 
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class CommentService {
     private final ThreadDao threadDao;
     private final CommentDao commentDao;
 
+    @Inject
     public CommentService(UserDao userDao, ThreadDao threadDao, CommentDao commentDao) {
         this.userDao = userDao;
         this.threadDao = threadDao;

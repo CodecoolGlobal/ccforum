@@ -1,9 +1,9 @@
 <%@ page import="com.codecool.ccforum.ui.controller.AuthController" %>
-<%@ page import="com.codecool.ccforum.application.ServiceRegistry" %>
+<%@ page import="com.codecool.ccforum.application.Inj" %>
 
 <%
     if (request.getMethod().equalsIgnoreCase("POST")) {
-        AuthController ctrl = ServiceRegistry.getInstance(AuthController.class);
+        AuthController ctrl = Inj.getInstance(AuthController.class);
         ctrl.onRegister(request.getParameter("name"), request.getParameter("email"), request.getParameter("password"));
         response.sendRedirect("/login.jsp");
     }

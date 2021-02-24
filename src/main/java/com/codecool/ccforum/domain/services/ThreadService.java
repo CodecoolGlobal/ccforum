@@ -4,6 +4,7 @@ import com.codecool.ccforum.domain.dao.ThreadDao;
 import com.codecool.ccforum.domain.dao.UserDao;
 import com.codecool.ccforum.domain.entities.Thread;
 import com.codecool.ccforum.domain.entities.User;
+import com.google.inject.Inject;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class ThreadService {
     private UserDao userDao;
     private ThreadDao threadDao;
 
+    @Inject
     public ThreadService(UserDao userDao, ThreadDao threadDao) {
         this.userDao = userDao;
         this.threadDao = threadDao;

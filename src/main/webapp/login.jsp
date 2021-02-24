@@ -1,11 +1,11 @@
 <%@ page import="com.codecool.ccforum.ui.controller.AuthController" %>
-<%@ page import="com.codecool.ccforum.application.ServiceRegistry" %>
+<%@ page import="com.codecool.ccforum.application.Inj" %>
 <%@ page import="javax.servlet.http.Cookie" %>
 
 <%
     boolean isLoginFailed = false;
     if (request.getMethod().equalsIgnoreCase("POST")) {
-        AuthController ctrl = ServiceRegistry.getInstance(AuthController.class);
+        AuthController ctrl = Inj.getInstance(AuthController.class);
         Long ssid = ctrl.onLogin(request.getParameter("email"), request.getParameter("password"));
         if (ssid == null) {
             isLoginFailed = true;

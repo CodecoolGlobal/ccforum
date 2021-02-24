@@ -1,7 +1,7 @@
 <%@ page import="com.codecool.ccforum.ui.model.ThreadModel" %>
 <%@ page import="com.codecool.ccforum.ui.model.CommentModel" %>
 <%@ page import="com.codecool.ccforum.ui.controller.ThreadController" %>
-<%@ page import="com.codecool.ccforum.application.ServiceRegistry" %>
+<%@ page import="com.codecool.ccforum.application.Inj" %>
 
 <html>
 <head>
@@ -11,7 +11,7 @@
 
 
 <%
-    ThreadController controller = ServiceRegistry.getInstance(ThreadController.class);
+    ThreadController controller = Inj.getInstance(ThreadController.class);
     ThreadModel model = controller.onLoad(request.getParameter("threadId"));
 %>
 <h1><%= model.getSubject() %></h1>

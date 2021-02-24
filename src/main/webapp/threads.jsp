@@ -1,7 +1,7 @@
 <%@ page import="com.codecool.ccforum.ui.model.ThreadListModel" %>
 <%@ page import="com.codecool.ccforum.ui.model.ThreadListItemModel" %>
 <%@ page import="com.codecool.ccforum.ui.controller.ThreadListController" %>
-<%@ page import="com.codecool.ccforum.application.ServiceRegistry" %>
+<%@ page import="com.codecool.ccforum.application.Inj" %>
 <%@ page import="java.util.Arrays" %>
 <%@ page import="javax.servlet.http.Cookie" %>
 <%@ page import="java.util.Optional" %>
@@ -26,7 +26,7 @@
 <a href="/newThread.jsp">Create new Thread</a>
 
 <%
-    ThreadListController controller = ServiceRegistry.getInstance(ThreadListController.class);
+    ThreadListController controller = Inj.getInstance(ThreadListController.class);
     ThreadListModel model = controller.onLoad();
 %>
 

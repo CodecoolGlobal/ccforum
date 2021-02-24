@@ -3,11 +3,13 @@ package com.codecool.ccforum.application;
 import com.codecool.ccforum.domain.entities.User;
 import com.codecool.ccforum.domain.services.UserService;
 import com.codecool.ccforum.ui.spi.UsersSpi;
+import com.google.inject.Inject;
 
 public class UsersSpiImpl implements UsersSpi {
 
     private final UserService userService;
 
+    @Inject
     public UsersSpiImpl(UserService userService) {
         this.userService = userService;
     }

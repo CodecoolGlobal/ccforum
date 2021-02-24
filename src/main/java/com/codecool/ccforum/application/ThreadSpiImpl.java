@@ -7,6 +7,7 @@ import com.codecool.ccforum.domain.services.ThreadService;
 import com.codecool.ccforum.ui.model.CommentModel;
 import com.codecool.ccforum.ui.model.ThreadModel;
 import com.codecool.ccforum.ui.spi.ThreadSpi;
+import com.google.inject.Inject;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ public class ThreadSpiImpl implements ThreadSpi {
     private final ThreadService threadService;
     private final CommentService commentService;
 
+    @Inject
     public ThreadSpiImpl(ThreadService threadService, CommentService commentService) {
         this.threadService = threadService;
         this.commentService = commentService;

@@ -4,7 +4,6 @@ import com.codecool.ccforum.domain.dao.CommentDao;
 import com.codecool.ccforum.domain.dao.ThreadDao;
 import com.codecool.ccforum.domain.dao.UserDao;
 import com.codecool.ccforum.domain.entities.Comment;
-import com.codecool.ccforum.persistence.UserDaoImpl;
 import com.google.inject.Inject;
 
 import java.util.List;

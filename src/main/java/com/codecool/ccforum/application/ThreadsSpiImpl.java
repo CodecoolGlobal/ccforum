@@ -29,7 +29,7 @@ public class ThreadsSpiImpl implements ThreadsSpi {
 
     @Override
     public long createNewThread(long id, String title, String desc) {
-        Thread thread = threadService.createNewThread(1, title, desc);
+        Thread thread = threadService.createNewThread(id, title, desc);
         return thread.getId();
     }
 }

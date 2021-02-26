@@ -1,10 +1,13 @@
 package com.codecool.ccforum.ui.spi;
 
-import com.codecool.ccforum.domain.entities.Entity;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
 
-public class Session implements Entity {
+@Entity
+public class Session {
 
-    private long id;
+    @Id
+    private Long id;
     private long userId;
 
     public Session(long id, long userId) {
@@ -19,12 +22,11 @@ public class Session implements Entity {
     public Session() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    @Override
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

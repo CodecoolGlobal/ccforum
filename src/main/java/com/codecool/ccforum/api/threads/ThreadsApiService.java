@@ -1,14 +1,8 @@
 package com.codecool.ccforum.api.threads;
 
 import com.codecool.ccforum.application.Inj;
-import com.codecool.ccforum.application.ThreadSpiImpl;
 import com.codecool.ccforum.domain.entities.Thread;
-import com.codecool.ccforum.domain.services.CommentService;
 import com.codecool.ccforum.domain.services.ThreadService;
-import com.codecool.ccforum.persistence.CommentDaoImpl;
-import com.codecool.ccforum.persistence.ThreadDaoImpl;
-import com.codecool.ccforum.persistence.UserDaoImpl;
-import com.codecool.ccforum.ui.controller.ThreadController;
 
 import javax.ws.rs.*;
 import java.util.List;

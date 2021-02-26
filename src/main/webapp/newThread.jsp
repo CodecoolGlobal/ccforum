@@ -1,13 +1,27 @@
 <%@ page import="com.codecool.ccforum.ui.model.NewThreadModel" %>
 <%@ page import="com.codecool.ccforum.ui.controller.NewThreadController" %>
 <%@ page import="com.codecool.ccforum.application.Inj" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="javax.servlet.http.Cookie" %>
+<%@ page import="java.util.Optional" %>
 
 <%
+    String ssidStr = null;
+        for (Cookie c : request.getCookies()) {
+            if (c.getName().equals("ssid")) {
+                ssidStr = c.getValue();
+            }
+        }
+
+        if (ssidStr == null) {
+            response.sendRedirect("/login.jsp");
+        }
+
     NewThreadController controller = Inj.getInstance(NewThreadController.class);
     boolean isPost = request.getMethod().equalsIgnoreCase("POST");
     NewThreadModel model = null;
     if (isPost) {
-        model = controller.onSubmit(request.getParameter("title"), request.getParameter("desc"));
+        model = controller.onSubmit(request.getParameter("title"), request.getParameter("desc"), ssidStr);
         if (model.isSuccess()) {
             response.sendRedirect("/thread.jsp?threadId=" + model.getNewThreadId());
             return;

@@ -7,11 +7,14 @@
 <%@ page import="java.util.Optional" %>
 
 <%
-    Optional<String> ssidStr = Arrays.stream(request.getCookies())
-                           .filter(c -> "ssid".equals(c.getName()))
-                           .map(Cookie::getValue)
-                           .findAny();
-    if (!ssidStr.isPresent()) {
+    String ssidStr = null;
+    for (Cookie c : request.getCookies()) {
+        if (c.getName().equals("ssid")) {
+            ssidStr = c.getValue();
+        }
+    }
+
+    if (ssidStr == null) {
         response.sendRedirect("/login.jsp");
     }
 %>

@@ -1,8 +1,16 @@
 package com.codecool.ccforum.domain.entities;
 
-public class User implements Entity {
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
-    private long id;
+@Entity
+public class User {
+
+    @Id
+    private Long id;
+
+    @Index
     private String email;
     private String name;
     private String pasword;
@@ -23,11 +31,11 @@ public class User implements Entity {
         this.pasword = pasword;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

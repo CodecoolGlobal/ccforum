@@ -2,7 +2,6 @@ package com.codecool.ccforum.domain.services;
 
 import com.codecool.ccforum.domain.dao.UserDao;
 import com.codecool.ccforum.domain.entities.User;
-import com.codecool.ccforum.persistence.UserDaoImpl;
 import com.google.inject.Inject;
 
 public class UserService {

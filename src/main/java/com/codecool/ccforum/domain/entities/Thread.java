@@ -1,10 +1,19 @@
 package com.codecool.ccforum.domain.entities;
 
-public class Thread implements Entity {
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
-    private long id;
+@Entity
+public class Thread {
+
+    @Id
+    private Long id;
+
     private String title;
     private String description;
+
+    @Index
     private long authorId;
 
     public Thread() {
@@ -23,11 +32,11 @@ public class Thread implements Entity {
         this.authorId = authorId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
